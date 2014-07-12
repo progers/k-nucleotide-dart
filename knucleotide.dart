@@ -29,10 +29,11 @@ HashMap<String, int> frequency(String sequence, int length) {
   String sub;
   for (int i = 0; i < n; i++) {
     sub = sequence.substring(i, i + length);
-    if (freq.containsKey(sub))
-      freq[sub] = freq[sub] + 1;
+    int currentFreq = freq[sub];
+    if (currentFreq == null)
+      freq[sub]= 1;
     else
-      freq[sub] = 1;
+      freq[sub] = currentFreq + 1;
   }
   return freq;
 }
